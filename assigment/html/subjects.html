@@ -1,0 +1,30 @@
+<style>
+    .subject{
+      background-color: white;
+      transition: transform ease 1s;
+      border: 1px dotted rgb(51, 47, 47);
+    }
+    .subject:hover{ 
+      transform: scale(1.1);
+    }
+  </style>
+<div class="container mt-5">
+  <div class="row">
+    <h3 class="text-danger mt-4 text-center">DANH MỤC CÁC MÔN HỌC </h3>
+    <div class="col-12 col-md-6 mt-4 " ng-repeat="sub in list_subject| limitTo:4:cout">
+      <div class="subject rounded ">
+        <div class="text-center" >
+          <img src="/images/logos/{{sub.Logo}}" class="m-3 rounded">
+          <p class="fw-bold " style="font-size: 20px;">{{sub.Name}}</p>
+        </div>
+        <div class="text-center">
+          <a type="button" href="#quiz/{{sub.Id}}/{{sub.Name}}" class="btn btn-success my-3 ">Test ngay</a>
+        </div>   
+      </div>
+    </div>
+    
+  </div>
+  <div class="text-center mt-5 mb-3">
+    <button ng-click="prev()" class="btn btn-primary">Prev</button>
+    <button ng-click="next()" class="btn btn-primary">Next</i></button>
+</div>

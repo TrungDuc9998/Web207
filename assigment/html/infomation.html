@@ -1,0 +1,55 @@
+
+<div class="mt-3" >
+    <div class="row">
+        <div class="col-md-5 card mt-1 container shadow-lg p-3 mb-5 bg-body rounded" >
+            <div class="card-body">
+                <form name="" action="" ng-submit="onSubmitForm($event)">
+                    <h1 class=" fw-bold text-success text-center pt-5">Thay đổi thông tin cá nhân</h1>
+                    <h5 class="text-center text-danger">Tài khoản:{{student.username}}</h5>
+                    <label class="text-success">Tên đăng ký</label>
+                    <div class="from-group mt-0">   
+                        <input type="text" ng-model="student.username" class="form-control border-success">
+                    </div>
+                    <label class="text-success">Mật khẩu</label> 
+                    <div class="from-group mt-0">
+                        <input type="password" ng-model="student.password" class="form-control border-success">
+                    </div> 
+                    <label class="text-success">Họ tên</label>
+                    <div class="from-group  mt-0">
+                        <input type="text" ng-model="student.fullname" class="form-control border-success">
+                    </div>   
+                    <label class="text-success">Email</label>
+                    <div class="from-group mt-0">
+                        <input type="email" ng-model="student.email" class="form-control border-success">
+                    </div>   
+                    <label class="text-success">Giới tính</label>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" ng-model="student.gender" name="inlineRadioOptions" id="gender" value="true">
+                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" ng-model="student.gender" type="radio" name="inlineRadioOptions" id="gender2" value="false">
+                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                    </div>
+                    <br>
+                    <label class="mt-2 text-success">Ngày sinh</label>
+                    <div class="from-group mt-2">
+                        <input type="text"  ng-model="student.birthday" class="form-control border-success"  required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
+                    </div>
+                    <!-- <label class="mt-2 text-success">Điểm</label>
+                    <div class="from-group mt-2">
+                        <input type="text" ng-model="student.marks" ng-disabled="true" class="form-control border-success" >
+                    </div> -->
+                    <label class="text-success" >Học phí</label>
+                    <div class="from-group mt-2">
+                        <input type="text" ng-model="student.schoolfee" class="form-control border-success ">
+                    </div>
+                    <div class="text-center from-group mt-2">
+                        <button class="btn btn-success btn-rounded" ng-click="update()">Thay đổi</button>
+                    </div> 
+                </form>
+            </div>
+        </div> 
+    </div>
+        
+</div>

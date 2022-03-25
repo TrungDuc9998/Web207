@@ -1,0 +1,41 @@
+<style>
+    .form-rounded {
+        border-radius: 30px;
+        
+    }
+    .form-rounded {
+       background-color: orange;
+        
+    }
+    .form-rounded:hover {
+       background-color: white;
+        
+    }
+</style>
+<div class="mt-5" >
+    <div class="row ">
+        <div class="col-md-5 card mt-1 container shadow-lg p-3 mb-5 bg-body rounded mt-5" >
+            <div class="card-body"  >
+                <form class="tra frm" name="frmLogin">
+                    <div class="text-center mt-2">
+                        <img src="/images/user.png" alt="">
+                    </div>
+                    <div class="form-group mt-2">       
+                        <input type="text" class="form-control border-warning form-rounded tex-warning my-2 mt-4" ng-model="username" name="txtUser" placeholder="Tài khoản" required>
+                        <span class="text-danger ms-2" ng-show="frmLogin.txtUser.$invalid">Vui lòng nhập tài khoản</span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="password" class="form-control border-warning form-rounded my-2 mt-4" ng-model="password" name="txtPass" placeholder="Mật khẩu" required>
+                        <span class="text-danger ms-2" ng-show="frmLogin.txtPass.$invalid">Vui lòng nhập mật khẩu</span>
+                    </div>
+                    <div class="text-center mt-2">
+                        <button class="btn btn-warning btn-rounded " ng-disabled="frmLogin.$invalid" ng-click="login()">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

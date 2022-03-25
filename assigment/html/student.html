@@ -1,0 +1,174 @@
+<div class="container mt-5">
+    <div class="row">
+        <h4 class="mt-5">DANH SÁCH THÀNH VIÊN</h4>
+        <div class="col-12">
+            <form name="frmST" action="" ng-submit="onSubmitForm($event)">
+                <div class="form-group">
+                    <strong>Username(<label class="text-danger">*</label>)</strong>
+                    <input type="text" ng-model="student1.username" name="txtUser" class="form-control" required>
+                    <span class="text-danger" ng-show="frmST.txtUser.$invalid" >Không được để trống username!</span>
+                </div>
+                <div class="form-group">
+                    <strong>password(<label class="text-danger">*</label>)</strong>
+                    <input type="password" ng-model="student1.password" name="txtPass" class="form-control" min="6" required>
+                    <span class="text-danger" ng-show="frmST.txtPass.$invalid" >password từ 6 ký tự trở lên!</span>
+                </div>
+                <div class="form-group">
+                    <strong>Họ và tên(<label class="text-danger">*</label>)</strong>
+                    <input type="text" ng-model="student1.fullname" name="txtFullName" class="form-control" required>
+                    <span class="text-danger" ng-show="frmST.txtFullName.$invalid" >Không được để trống họ tên!</span>
+                </div>
+                <div class="form-group">
+                    <strong>Email(<label class="text-danger">*</label>)</strong>
+                    <input type="email" ng-model="student1.email" name="txtEmail" class="form-control">
+                    <span class="text-danger" ng-show="frmST.txtEmail.$invalid" >Emal không đúng định dạng!</span>
+                </div>
+                <strong class="">Giới tính(<label class="text-danger">*</label>)</strong>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio"  ng-model="student1.gender" id="gender" value="true" checked >
+                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  ng-model="student1.gender" id="gender2" value="false">
+                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                    </div>
+                    <div class="from-group mt-2">
+                        <strong class="mt-2 ">Ngày sinh(yyyy-MM-dd)(<label class="text-danger">*</label>)</strong>
+                        <input type="text" class="form-control "  pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="txtDate"  ng-model="student1.birthday" >
+                        <span class="text-danger" ng-show="frmST.txtDate.$invalid">Ngày sinh không đúng định dạng</span>
+                        <!-- <span class="text-danger" ng-show="frmRegister.txtDate.$invalid"> Vui lòng chọn ngày sinh</span> -->
+                    </div>
+                    <strong class="" >Học phí(<label class="text-danger">*</label>)</strong>
+                    <div class="from-group mt-2">
+                        <input type="number" class="form-control  " name="txtNumber" ng-model="student1.schoolfee" min="2000000" required>
+                        <span class="text-danger" ng-show="frmST.txtNumber.$invalid"> Học phí phải lớn hơn 2 triệu</span>
+                    </div>
+                <!-- <div class="form-group">
+                    <strong>Điểm(<label class="text-danger">*</label>)</strong>
+                    <input type="number" min="0" max="0" value="0" name="txtMark"  ng-model="student1.marks" class="form-control" required>
+                    <span class="text-danger" ng-show="frmST.txtMark.$invalid">Vui lòng nhập điểm là 0</span>
+                    
+                </div> -->
+                <strong class="">Vai trò(<label class="text-danger">*</label>)</strong>
+                <div class="form-check form-check-inline mt-2">
+                    <input class="form-check-input" type="radio" ng-model="student1.admin" id="admin" value="true" checked >
+                    <label class="form-check-label" for="inlineRadio1">user</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"   ng-model="student1.admin" id="admin2" value="false">
+                    <label class="form-check-label" for="inlineRadio2">admin</label>
+                </div>
+                <div class="form-group mt-2">
+                    <button class="btn btn-primary" >Lưu</button>
+                    <!-- <button class="btn btn-primary" ng-click="clear()" >Làm mới</button> -->
+                    <!-- <button class="btn btn-warning" ng-click="clear()">Làm mới</button>
+                    <button class="btn btn-danger" ng-click="cancel()">Huỷ</button> -->
+                </div>
+            </form>
+            <hr>
+            <table class="table table-responsive">
+                <tr>
+                    <th>TÀI KHOẢN</th>
+                    <th>HỌ TÊN</th>
+                    <th>EMAIL</th>
+                    <th>GIỚI TÍNH</th>
+                    <th>NGÀY</th>
+                    <!-- <th>ĐIỂM</th> -->
+                    <th>VAI TRÒ</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="stu in students">
+                    <td class="text-dank">{{stu.username}}</td>
+                    <td>{{stu.fullname}}</td>
+                    <td>{{stu.email}}</td>
+                    <td>{{((stu.gender)=='true')?"Nam":"Nữ"}}</td>
+                    <td>{{stu.birthday}}</td>
+                    <!-- <td>{{stu.marks}}</td> -->
+                    <td>{{stu.admin=='true'?'user':'admin'}}</td>
+                    <td>
+                        <!-- <button class="btn btn-primary"  ng-click="hienThi(stu.id)">hiển thị</button> -->
+                        <!-- Button trigger modal -->
+                        <button type="button" ng-click="hienThi(stu.id)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Hiển thị
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form name="" action="" ng-submit="onSubmitForm($event)">
+                                    <div class="form-group">
+                                        <strong>Username</strong>
+                                        <input type="text" ng-model="student.username" class="form-control">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <strong>password</strong>
+                                        <input type="password" ng-model="student.password" class="form-control">
+                                    </div> -->
+                                    <div class="form-group">
+                                        <strong>Họ và tên</strong>
+                                        <input type="text" ng-model="student.fullname" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <strong>Email</strong>
+                                        <input type="email" ng-model="student.email" class="form-control">
+                                    </div>
+                                    <strong class="">Giới tính</strong>
+                                        <div class="form-check form-check-inline mt-2">
+                                            <input class="form-check-input" type="radio"  ng-model="student.gender" id="gender" value="true" checked >
+                                            <label class="form-check-label" for="inlineRadio1">Nam</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio"  ng-model="student.gender" id="gender2" value="false">
+                                            <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                                        </div>
+                                        <div class="from-group mt-2">
+                                            <strong class="mt-2 ">Ngày sinh</strong>
+                                            <input type="text" class="form-control border-success"  ng-model="student.birthday" >
+                                            <!-- <span class="text-danger" ng-show="frmRegister.txtDate.$invalid"> Vui lòng chọn ngày sinh</span> -->
+                                        </div>
+                                        <strong class="" >Học phí</strong>
+                                        <div class="from-group mt-2">
+                                            <input type="number" class="form-control border-success " ng-model="student.schoolfee" min="2000000" >
+                                            <!-- <span class="text-danger" ng-show="frmRegister.txtNumber.$invalid"> Học phí phải lớn hơn 2 triệu</span> -->
+                                        </div>
+                                    <!-- <div class="form-group">
+                                        <strong>Điểm</strong>
+                                        <input type="number" min="0" max="10" value="0"  ng-model="student.marks" class="form-control">
+                                    </div> -->
+                                    <strong class="">Vai trò</strong>
+                                    <div class="form-check form-check-inline mt-2">
+                                        <input class="form-check-input" type="radio" ng-model="student.admin" id="admin" value="true" checked >
+                                        <label class="form-check-label" for="inlineRadio1">user</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio"   ng-model="student.admin" id="admin2" value="false">
+                                        <label class="form-check-label" for="inlineRadio2">admin</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" ng-click="onEdit(stu.id)">Lưu thay đổi</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" ng-click="onDelete(stu.id)">Xoá</button>
+                    </td>
+                    <!-- <td>
+                        <button class="btn btn-primary"  ng-click="onEdit(stu.id)">Sửa</button>
+                    </td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

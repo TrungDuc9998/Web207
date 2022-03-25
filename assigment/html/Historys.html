@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <h5 class="text-center text-danger" style="margin-top:100px">LỊCH SỬ LÀM BÀI</h5>
+    <table class="table">
+        <tr>
+            <th>THỜI GIAN LÀM</th>
+            <th>TÀI KHOẢN</th>
+            <th>MÔN HỌC</th>
+            <th>ĐIỂM</th>
+        </tr>
+        <tr ng-repeat="his in historys">
+            <td>{{his.Date}}</td>
+            <td>{{his.username}}</td>
+            <td>{{his.subject}}</td>
+            <td>{{his.marks}}</td>
+        </tr>
+    </table>
+</div>

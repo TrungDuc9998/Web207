@@ -1,0 +1,872 @@
+<div class="container mt-5">
+    <div class="card mt-5">
+        <div class="card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab-1" data-bs-toggle="tab" data-bs-target="#home"
+                        type="button" role="tab" aria-controls="home" aria-selected="true" ng-click="tab1()">ADAV</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#profile"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false"  ng-click="tab2()">ADBS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#tab3"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false"  ng-click="tab3()">ADTE</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#tab4"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false"  ng-click="tab4()">ADUI</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#tab5"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false"  ng-click="tab5()">ASNE</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab-1" data-bs-toggle="tab" data-bs-target="#tab6"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false"  ng-click="tab6()">CLCO</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <form name="" action="" ng-submit="onSubmitForm($event)">
+                        <div class="form-group">
+                            <label>Text</label>
+                            <input type="text" class="form-control" ng-model="adav1.Text">
+                        </div>
+                        <div class="form-group">
+                             <label>Marks</label>
+                             <input type="text" class="form-control" ng-model="adav1.Marks">
+                         </div>
+                         <div class="form-group">
+                             <label>AnswerId</label>
+                             <input type="text" class="form-control" ng-model="adav1.AnswerId">
+                         </div>
+                         <div class="form-group">
+                             <label >Id Answers 1</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[0].Id">
+                         </div> 
+                         <div class="form-group">
+                             <label >Text Answers 1</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[0].Text">
+                         </div>
+                         <div class="form-group">
+                             <label >Id Answers 2</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[1].Id">
+                         </div> 
+                         <div class="form-group">
+                             <label >Text Answers 2</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[1].Text">
+                         </div>
+                         <div class="form-group">
+                             <label >Id Answers 3</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[2].Id">
+                         </div> 
+                         <div class="form-group">
+                             <label >Text Answers 3</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[2].Text">
+                         </div>
+                         <div class="form-group">
+                             <label >Id Answers 4</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[3].Id">
+                         </div> 
+                         <div class="form-group">
+                             <label >Text Answers 4</label>
+                             <input type="text" class="form-control" ng-model="adav1.Answers[3].Text">
+                         </div>
+                         <div class="form-group mt-2">
+                             <button class="btn btn-primary">Lưu</button>
+                         </div>
+                    </form>
+                    <hr>
+                    <table class="table">
+                        <tr>
+                            <th>Id</th>
+                            <th>Text</th>
+                            <th>AnswerID</th>
+                            <th>Answers</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr ng-repeat="adii in adavs">
+                            <td>{{adii.Id}}</td>
+                            <td>{{adii.Text}}</td>
+                            <td>{{adii.AnswerId}}</td>
+                            <td>{{adii.Answers}}</td>
+                            <td>
+                            
+                             <button type="button" ng-click="hienThi(adii.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                             Hiển thị
+                             </button>
+         
+                             
+                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                             <div class="modal-dialog">
+                                 <div class="modal-content">
+                                 <div class="modal-header">
+                                     <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                 </div>
+                                 <div class="modal-body">
+                                     <form name="" action="" ng-submit="onSubmitForm($event)">
+                                        <!-- <div class="form-group">
+                                            <label >Id:</label>
+                                            <input type="text" class="form-control" ng-model="adav.Id">
+                                        </div> -->
+                                         <div class="form-group">
+                                             <label >Question:</label>
+                                             <input type="text" class="form-control" ng-model="adav.Text">
+                                         </div>
+                                         <div class="form-group">
+                                            <label >AnswerId:</label>
+                                            <input type="text" class="form-control" ng-model="adav.AnswerId">
+                                        </div>
+                                         <div class="form-group">
+                                             <label >Id Answers 1</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[0].Id">
+                                         </div> 
+                                         <div class="form-group">
+                                             <label >Text Answers 1</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[0].Text">
+                                         </div>
+                                         <div class="form-group">
+                                             <label >Id Answers 2</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[1].Id">
+                                         </div> 
+                                         <div class="form-group">
+                                             <label >Text Answers 2</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[1].Text">
+                                         </div>
+                                         <div class="form-group">
+                                             <label >Id Answers 3</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[2].Id">
+                                         </div> 
+                                         <div class="form-group">
+                                             <label >Text Answers 3</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[2].Text">
+                                         </div>
+                                         <div class="form-group">
+                                             <label >Id Answers 4</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[3].Id">
+                                         </div> 
+                                         <div class="form-group">
+                                             <label >Text Answers 4</label>
+                                             <input type="text" class="form-control" ng-model="adav.Answers[3].Text">
+                                         </div>   
+                                     </form>
+                                 </div>
+                                 <div class="modal-footer">
+                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                     <button type="button" class="btn btn-primary" ng-click="onEdit()" >Lưu thay đổi</button>
+                                 </div>
+                                 </div>
+                             </div>
+                             </div>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="onDelete(adii.Id)">Xoá</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <form name="" action="" ng-submit="onSubmitForm($event)">
+                            <div class="form-group">
+                                <label>Text</label>
+                                <input type="text" class="form-control" ng-model="adbs1.Text">
+                            </div>
+                            <div class="form-group">
+                                 <label>Marks</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Marks">
+                             </div>
+                             <div class="form-group">
+                                 <label>AnswerId</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.AnswerId">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[0].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[0].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[1].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[1].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[2].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[2].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[3].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adbs1.Answers[3].Text">
+                             </div>
+                             <div class="form-group mt-2">
+                                 <button class="btn btn-primary">Lưu</button>
+                             </div>
+                        </form>
+                        <hr>
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>AnswerID</th>
+                                <th>Answers</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="adi in adbss">
+                                <td>{{adi.Id}}</td>
+                                <td>{{adi.Text}}</td>
+                                <td>{{adi.AnswerId}}</td>
+                                <td>{{adi.Answers}}</td>
+                                <td>
+                                
+                                 <button type="button" ng-click="hienThi(adi.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                 Hiển thị
+                                 </button>
+             
+                                 
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <form name="" action="" ng-submit="onSubmitForm($event)">
+                                             <div class="form-group">
+                                                 <label >Question</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Text">
+                                             </div>
+                                             <div class="form-group">
+                                                <label >AnswerId:</label>
+                                                <input type="text" class="form-control" ng-model="adbs.AnswerId">
+                                            </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[0].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[0].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[1].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[1].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[2].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[2].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[3].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adbs.Answers[3].Text">
+                                             </div>   
+                                         </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" ng-click="onEdit(adi.Id)" >Lưu thay đổi</button>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="onDelete(adi.Id)">Xoá</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <form name="" action="" ng-submit="onSubmitForm($event)">
+                            <div class="form-group">
+                                <label>Text</label>
+                                <input type="text" class="form-control" ng-model="adte1.Text">
+                            </div>
+                            <div class="form-group">
+                                 <label>Marks</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Marks">
+                             </div>
+                             <div class="form-group">
+                                 <label>AnswerId</label>
+                                 <input type="text" class="form-control" ng-model="adte1.AnswerId">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[0].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[0].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[1].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[1].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[2].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[2].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[3].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adte1.Answers[3].Text">
+                             </div>
+                             <div class="form-group mt-2">
+                                 <button class="btn btn-primary">Lưu</button>
+                             </div>
+                        </form>
+                        <hr>
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>AnswerID</th>
+                                <th>Answers</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="adi in adtes">
+                                <td>{{adi.Id}}</td>
+                                <td>{{adi.Text}}</td>
+                                <td>{{adi.AnswerId}}</td>
+                                <td>{{adi.Answers}}</td>
+                                <td>
+                                
+                                 <button type="button" ng-click="hienThi(adi.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                 Hiển thị
+                                 </button>
+             
+                                 
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <form name="" action="" ng-submit="onSubmitForm($event)">
+                                             <div class="form-group">
+                                                 <label >Question</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Text">
+                                             </div>
+                                             <div class="form-group">
+                                                <label >AnswerId:</label>
+                                                <input type="text" class="form-control" ng-model="adte.AnswerId">
+                                            </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[0].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[0].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[1].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[1].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[2].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[2].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[3].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adte.Answers[3].Text">
+                                             </div>   
+                                         </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" ng-click="onEdit(adi.Id)" >Lưu thay đổi</button>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="onDelete(adi.Id)">Xoá</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <form name="" action="" ng-submit="onSubmitForm($event)">
+                            <div class="form-group">
+                                <label>Text</label>
+                                <input type="text" class="form-control" ng-model="adui1.Text">
+                            </div>
+                            <div class="form-group">
+                                 <label>Marks</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Marks">
+                             </div>
+                             <div class="form-group">
+                                 <label>AnswerId</label>
+                                 <input type="text" class="form-control" ng-model="adui1.AnswerId">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[0].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[0].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[1].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[1].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[2].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[2].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[3].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[3].Text">
+                             </div>
+                             <div class="form-group mt-2">
+                                 <button class="btn btn-primary">Lưu</button>
+                             </div>
+                        </form>
+                        <hr>
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>AnswerID</th>
+                                <th>Answers</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="adi in aduis">
+                                <td>{{adi.Id}}</td>
+                                <td>{{adi.Text}}</td>
+                                <td>{{adi.AnswerId}}</td>
+                                <td>{{adi.Answers}}</td>
+                                <td>
+                                
+                                 <button type="button" ng-click="hienThi(adi.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                 Hiển thị
+                                 </button>
+             
+                                 
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <form name="" action="" ng-submit="onSubmitForm($event)">
+                                             <div class="form-group">
+                                                 <label >Question</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Text">
+                                             </div>
+                                             <div class="form-group">
+                                                <label >AnswerId:</label>
+                                                <input type="text" class="form-control" ng-model="adui.AnswerId">
+                                            </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[0].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[0].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[1].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[1].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[2].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[2].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[3].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[3].Text">
+                                             </div>   
+                                         </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" ng-click="onEdit(adi.Id)" >Lưu thay đổi</button>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="onDelete(adi.Id)">Xoá</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <form name="" action="" ng-submit="onSubmitForm($event)">
+                            <div class="form-group">
+                                <label>Text</label>
+                                <input type="text" class="form-control" ng-model="asne1.Text">
+                            </div>
+                            <div class="form-group">
+                                 <label>Marks</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Marks">
+                             </div>
+                             <div class="form-group">
+                                 <label>AnswerId</label>
+                                 <input type="text" class="form-control" ng-model="asne1.AnswerId">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[0].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[0].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[1].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[1].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[2].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[2].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[3].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="asne1.Answers[3].Text">
+                             </div>
+                             <div class="form-group mt-2">
+                                 <button class="btn btn-primary">Lưu</button>
+                             </div>
+                        </form>
+                        <hr>
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>AnswerID</th>
+                                <th>Answers</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="adi in asnes">
+                                <td>{{adi.Id}}</td>
+                                <td>{{adi.Text}}</td>
+                                <td>{{adi.AnswerId}}</td>
+                                <td>{{adi.Answers}}</td>
+                                <td>
+                                
+                                 <button type="button" ng-click="hienThi(adi.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                 Hiển thị
+                                 </button>
+             
+                                 
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <form name="" action="" ng-submit="onSubmitForm($event)">
+                                             <div class="form-group">
+                                                 <label >Question</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Text">
+                                             </div>
+                                             <div class="form-group">
+                                                <label >AnswerId:</label>
+                                                <input type="text" class="form-control" ng-model="asne.AnswerId">
+                                            </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[0].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[0].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[1].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[1].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[2].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[2].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[3].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="asne.Answers[3].Text">
+                                             </div>   
+                                         </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" ng-click="onEdit(adi.Id)" >Lưu thay đổi</button>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="onDelete(adi.Id)">Xoá</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab6" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive">
+                        <form name="" action="" ng-submit="onSubmitForm($event)">
+                            <div class="form-group">
+                                <label>Text</label>
+                                <input type="text" class="form-control" ng-model="adui1.Text">
+                            </div>
+                            <div class="form-group">
+                                 <label>Marks</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Marks">
+                             </div>
+                             <div class="form-group">
+                                 <label>AnswerId</label>
+                                 <input type="text" class="form-control" ng-model="adui1.AnswerId">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[0].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 1</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[0].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[1].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 2</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[1].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[2].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 3</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[2].Text">
+                             </div>
+                             <div class="form-group">
+                                 <label >Id Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[3].Id">
+                             </div> 
+                             <div class="form-group">
+                                 <label >Text Answers 4</label>
+                                 <input type="text" class="form-control" ng-model="adui1.Answers[3].Text">
+                             </div>
+                             <div class="form-group mt-2">
+                                 <button class="btn btn-primary">Lưu</button>
+                             </div>
+                        </form>
+                        <hr>
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Text</th>
+                                <th>AnswerID</th>
+                                <th>Answers</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="adi in aduis">
+                                <td>{{adi.Id}}</td>
+                                <td>{{adi.Text}}</td>
+                                <td>{{adi.AnswerId}}</td>
+                                <td>{{adi.Answers}}</td>
+                                <td>
+                                
+                                 <button type="button" ng-click="hienThi(adi.Id)" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                 Hiển thị
+                                 </button>
+             
+                                 
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title text-warrnng" id="exampleModalLabel">FPT POLYTECHNIC</h5>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                     </div>
+                                     <div class="modal-body">
+                                         <form name="" action="" ng-submit="onSubmitForm($event)">
+                                             <div class="form-group">
+                                                 <label >Question</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Text">
+                                             </div>
+                                             <div class="form-group">
+                                                <label >AnswerId:</label>
+                                                <input type="text" class="form-control" ng-model="adui.AnswerId">
+                                            </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[0].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 1</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[0].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[1].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 2</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[1].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[2].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 3</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[2].Text">
+                                             </div>
+                                             <div class="form-group">
+                                                 <label >Id Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[3].Id">
+                                             </div> 
+                                             <div class="form-group">
+                                                 <label >Text Answers 4</label>
+                                                 <input type="text" class="form-control" ng-model="adui.Answers[3].Text">
+                                             </div>   
+                                         </form>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" ng-click="onEdit(adi.Id)" >Lưu thay đổi</button>
+                                     </div>
+                                     </div>
+                                 </div>
+                                 </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" ng-click="onDelete(adi.Id)">Xoá</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+          
+        </div>
+    </div>
+</div>

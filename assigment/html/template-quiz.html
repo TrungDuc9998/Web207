@@ -1,0 +1,105 @@
+<div class="container my-5 mt-5" id="content" >
+    
+    <div class="row mt-5" ng-show="!inProgess" >
+        <div class="col text-center mt-5">
+            <!-- <h4>Bài thi:{{subjectName}}</h4> -->
+            
+            <h3>Start the quiz {{student.username}}</h3>
+            <button class="btn btn-primary" ng-click="start()">Start</button>
+        </div>
+    </div>
+    <div ng-show="inProgess">
+        <div class="mt-5" ng-show="quizOver">  
+            <div class="row card mt-5 border-danger bg-danger" >
+                <div class="card-header">
+                   <p class="text-dark fw-bold">Vui lòng chọn tất cả các thông tin ở dưới để lưu kết quả!!!</p> 
+                </div>
+                <div class="card-body">
+                    <form action="" name="" ng-submit="onSubmitForm($event)">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="{{tenTK}}" ng-model="history.username" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Tài khoản
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" value="{{date | date:'yyyy-MM-dd hh:mm:ss a'}}" ng-model="history.Date" name="flexRadioDefault3" id="flexRadioDefault3" checked>
+                            <label class="form-check-label" for="flexRadioDefault3">
+                              Ngày làm
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"value="{{subjectName}}" ng-model="history.subject" name="flexRadioDefault4" id="flexRadioDefault4" checked>
+                            <label class="form-check-label" for="flexRadioDefault4">
+                              Môn thi
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" value="{{score}}"  ng-model="history.marks" name="flexRadioDefault5" id="flexRadioDefault5" checked>
+                            <label class="form-check-label" for="flexRadioDefault5">
+                              Điểm
+                            </label>
+                          </div>
+                        <div class="from-group mt-2">
+                            <button class="btn btn-primary" ng-click="luuKQ()">Lưu kết quả</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col text-center mt-5">
+                <h3>Quiz is Over</h3>
+                <h5 class="text-danger">Mark:{{score}}</h5>
+                <button class="btn btn-primary" ng-click="reset()">Play again</button>
+            </div>
+        </div>
+        <div ng-show="!quizOver" style="margin-top: 80px;">
+            <div class="row">
+                <div class="col text-center">
+                    <h2> {{(timer-timer%60)/60}}:{{timer%60}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card border-info">
+                        <div class="card-header text-white" style="background-color: #23B5E1;">
+                            <div class="row">
+                                <div class="col-10">
+                                    <img src="/images/logos/JAAV.png" width="30" class="border border-primary rounded-lg" alt="">
+                                    <span>{{subjectName}}</span>
+                                </div>
+                                <div class="col-1 off-set-2">
+                                    <span class="badge bg-success float-right">Câu {{id}}/10</span>
+                                </div>
+                                <div class="col-1">
+                                    <span class="badge bg-danger float-right">Điểm {{score}}/10</span>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text" style="font-weight: 500;">
+                               <label for="" class="row">{{question}}</label> 
+                                <hr>
+                                <div class="form-check" ng-repeat="option in options">                             
+                                    <label class="form-check-label" for="Radios1">
+                                    <input class="form-check-input" type="radio" name="answer1" value="{{option.Id}}">
+                                       {{option.Text}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div ng-show="answerMode">
+                                <button ng-click="checkAnswer()" class="btn btn-primary">Submit</button>
+                            </div>
+                            <div ng-show="!answerMode">
+                                <button ng-click="nextQuestion()" class="btn btn-primary">Next</button>
+                                <span ng-show="correctAns">Correct</span>
+                                <span ng-show="!correctAns">InCorrect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
